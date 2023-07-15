@@ -1,5 +1,6 @@
 import tkinter as tk
 from home import Home
+from PIL import ImageTk, Image
 
 class CovidTrace(tk.Tk):
     def __init__(self):
@@ -11,8 +12,8 @@ class CovidTrace(tk.Tk):
         self.sections = []
         self.currentsection = 0
         
-        # Sections
-        self.frame = Home(self, self.change_section)
+        #Sections
+        self.frame = Home(self)
         self.sections = [self.frame]
         
         # Show initial section
@@ -21,11 +22,12 @@ class CovidTrace(tk.Tk):
     def present_section(self, section_n):
         section = self.sections[section_n]
         section.pack(fill="both", expand=True)
-        self.present = section_n
+        self.currentsection = section_n
     
     def change_section(self, section_n):
-        self.sections[self.currentsection].hide()
+        self.sections[self.currentsection].pack_forget()
         self.present_section(section_n)
+    
 
 if __name__ == "__main__":
     cta = CovidTrace()
