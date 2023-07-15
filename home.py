@@ -1,5 +1,6 @@
 import tkinter as tk
 from PIL import ImageTk, Image
+import subprocess
 
 class Home(tk.Frame):
     def __init__(self, parent, change_section):
@@ -24,10 +25,7 @@ class Home(tk.Frame):
         self.menu_bar.add_cascade(label="File", menu=self.file_menu)
         
         # Register menu item
-        self.file_menu.add_command(label="Register", command=self.register)
-
-    def register(self):
-        print("Register section")
+        self.file_menu.add_command(label="Register", command=lambda: self.change_section(1))
 
     def present(self):
         self.pack()
