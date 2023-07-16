@@ -22,7 +22,7 @@ class Home(tk.Frame):
         
         # File menu
         self.file_menu = tk.Menu(self.menu_bar, tearoff=False)
-        self.menu_bar.add_cascade(label="File", menu=self.file_menu)
+        self.menu_bar.add_cascade(label="Menu", menu=self.file_menu)
         
         # Register menu item
         self.file_menu.add_command(label="Register", command=lambda: self.change_section(1))
