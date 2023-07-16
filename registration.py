@@ -66,7 +66,33 @@ class Register(tk.Frame):
         # Email Address
         self.email_entry = tk.Entry(self, width= 100)
         self.email_entry.place(x=120, y=260)
-        
+
+# Checklist for their health status
+    # Vaccination status checklist
+        self.healt_banner = tk.Label(self, text="HEALTH INFORMATION", bg="blue",fg="white", font=("Times New Roman", 10)) # Health Info banner
+        self.healt_banner.place(x=370, y=290)
+        self.vaccination_label = tk.Label(self, bg="yellow",fg="black", text="Vaccination Status")
+        self.vaccination_label.place(x=30,y=320)
+    # Are they Positive
+    # Have they been in contact with others
+    
+# Buttons
+    # vaccination status chacklist
+        self.vaccination_var1 = tk.IntVar() # 1st dose
+        self.vaccination_check1 = tk.Checkbutton(self, text="1st Dose", variable=self.vaccination_var1)
+        self.vaccination_check1.place(x=60,y=350)
+
+        self.vaccination_var2 = tk.IntVar() # 2nd dose
+        self.vaccination_check2 = tk.Checkbutton(self, text="2nd Dose", variable=self.vaccination_var2)
+        self.vaccination_check2.place(x=60,y=380)
+
+        self.vaccination_var3 = tk.IntVar() # 1st Booster
+        self.vaccination_check3 = tk.Checkbutton(self, text="1st Booster", variable=self.vaccination_var3)
+        self.vaccination_check3.place(x=190,y=350)
+
+        self.vaccination_var4 = tk.IntVar() # 2nd booster
+        self.vaccination_check4 = tk.Checkbutton(self, text="2nd Booster", variable=self.vaccination_var4)
+        self.vaccination_check4.place(x=190,y=380)        
         
         # Submit button
         self.submit_button = tk.Button(self, text="Submit", command=self.submit_registration)
@@ -75,11 +101,19 @@ class Register(tk.Frame):
 
     def submit_registration(self):
         name = self.name_entry.get()
+        address = self.add_entry.get()
+        birth_date = self.birth_entry.get()
+        phone_number = self.phone_entry.get()
+        email_add = self.email_entry.get()
         # Perform further processing or save the registration information
 
         # Print the registration information as an example
         print("Registration Information:")
         print("Name:", name)
+        print("Address:", address)
+        print("Birth Date:", birth_date)
+        print("Phone Number:", phone_number)
+        print("Email Address:", email_add)
         
         #Resize image
     def resize_image(self, event):
