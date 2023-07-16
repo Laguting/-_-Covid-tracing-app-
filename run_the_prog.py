@@ -2,6 +2,7 @@ import tkinter as tk
 from home import Home
 from registration import Register
 from reminders import Reminders
+from search_bar import Search_Bar
 
 class CovidTrace(tk.Tk):
     def __init__(self):
@@ -17,7 +18,8 @@ class CovidTrace(tk.Tk):
         self.section_0 = Home(self, self.change_section)
         self.section_1 = Register(self, self.change_section)
         self.section_2 = Reminders(self, self.change_section)
-        self.sections = [self.section_0, self.section_1, self.section_2]
+        self.section_3 = Search_Bar(self, self.change_section)
+        self.sections = [self.section_0, self.section_1, self.section_2, self.section_3]
         
         # Show initial section
         self.present_section(self.currentsection)
