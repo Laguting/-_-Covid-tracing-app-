@@ -23,13 +23,19 @@ class Register(tk.Frame):
     # Name
         # Name label
         self.name_guide = tk.Label(self, text="FIRST NAME,MIDDLE NAME,SURNAME", bg="yellow",fg="black", font=("Times New Roman", 7)) # Name entry guide
-        self.name_guide.place(x=100, y=55)
+        self.name_guide.place(x=100, y=60)
         self.name_label = tk.Label(self, bg="yellow",fg="black", text="Name:")
         self.name_label.place(x=30, y=80)
     # Address
         # Adress Label
         self.add_label = tk.Label(self, bg="yellow",fg="black", text="Address:")
         self.add_label.place(x=30, y=120)
+    # Date of Birth
+        # Date of Birth Label
+        self.birth_guide = tk.Label(self, text="MONTH/DATE/YEAR", bg="yellow",fg="black", font=("Times New Roman", 7)) # Name entry guide
+        self.birth_guide.place(x=100, y=140)
+        self.birth_label = tk.Label(self, bg="yellow",fg="black", text="Birth Date:")
+        self.birth_label.place(x=30, y=160)
 
 # Entries
     # Name
@@ -39,7 +45,13 @@ class Register(tk.Frame):
     # Address
         # Address Entry Field
         self.add_entry = tk.Entry(self, width= 100)
-        self.add_entry.place(x=110, y=120)
+        self.add_entry.place(x=100, y=120)
+    # Date of Birth
+        # Date of Birth entry Field
+        self.birth_entry = tk.Entry(self, width= 30)
+        self.birth_entry.place(x=100, y=160)
+        
+        
         
         # Submit button
         self.submit_button = tk.Button(self, text="Submit", command=self.submit_registration)
