@@ -19,7 +19,7 @@ class Register(tk.Frame):
         self.info = tk.Label(self,bg="black", fg="yellow",text = "Registration ", height=1, font=("Times New Roman", 13))
         self.info.place(x=400, y=45)
 
-# Labels
+# Personal Information Labels
     # Name
         # Name label
         self.name_guide = tk.Label(self, text="FIRST NAME,MIDDLE NAME,SURNAME", bg="yellow",fg="black", font=("Times New Roman", 7)) # Name entry guide
@@ -37,7 +37,7 @@ class Register(tk.Frame):
         self.birth_label = tk.Label(self, bg="yellow",fg="black", text="Birth Date:")
         self.birth_label.place(x=30, y=160)
     # Contact Information
-        self.contact_banner = tk.Label(self, text="CONTACT INFORMATION", bg="blue",fg="white", font=("Times New Roman", 10)) # Contact info banner
+        self.contact_banner = tk.Label(self, text="CONTACT INFORMATION", bg="yellow",fg="black", font=("Times New Roman", 10)) # Contact info banner
         self.contact_banner.place(x=370, y=190)
         # Phone Number Label
         self.phone_label = tk.Label(self, bg="yellow",fg="black", text="Phone Number:")
@@ -46,7 +46,7 @@ class Register(tk.Frame):
         self.phone_label = tk.Label(self, bg="yellow",fg="black", text="Email address:")
         self.phone_label.place(x=30, y=260)
         
-# Entries
+# Personal Information Entries
     # Name
         # Name entry field
         self.name_entry = tk.Entry(self, width= 100)
@@ -79,6 +79,9 @@ class Register(tk.Frame):
     # Have they been in contact with others
         self.contact_label = tk.Label(self, bg="yellow",fg="black", text="Have you been in contact with someone since you felt the symptoms?")
         self.contact_label.place(x=500,y=320)
+    # Information of their identified closed contact
+        self.close_contact_label = tk.Label(self, text="CLOSE CONTACT INFORMATION", bg="blue",fg="white", font=("Times New Roman", 10))
+        self.close_contact_label.place(x=370, y=480)
     
 # Buttons and Checklist
     # vaccination status chacklist
@@ -114,7 +117,46 @@ class Register(tk.Frame):
         
         # They haven't been in contact with someone
         self.contact_radio2 = tk.Radiobutton(self, text="No", variable=self.contact_var, value="No")
-        self.contact_radio2.place(x=620,y=350)     
+        self.contact_radio2.place(x=620,y=350)
+        
+# Close contact informations
+    # Close contact labels
+    # Name
+        # Name label
+        self.close_name_guide = tk.Label(self, text="FIRST NAME,MIDDLE NAME,SURNAME", bg="yellow",fg="black", font=("Times New Roman", 7)) # Name entry guide
+        self.close_name_guide.place(x=100, y=520)
+        self.close_name_label = tk.Label(self, bg="yellow",fg="black", text="Name:")
+        self.close_name_label.place(x=30, y=550)
+    # Address
+        # Adress Label
+        self.close_add_label = tk.Label(self, bg="yellow",fg="black", text="Address:")
+        self.close_add_label.place(x=30, y=590)
+    # Contact Information
+        self.close_contact_banner = tk.Label(self, text="CONTACT INFORMATION", bg="yellow",fg="black", font=("Times New Roman", 10)) # Contact info banner
+        self.close_contact_banner.place(x=370, y=610)
+        # Phone Number Label
+        self.close_phone_label = tk.Label(self, bg="yellow",fg="black", text="Phone Number:")
+        self.close_phone_label.place(x=30, y=630)
+        # Email Address
+        self.close_phone_label = tk.Label(self, bg="yellow",fg="black", text="Email address:")
+        self.close_phone_label.place(x=30, y=690)
+        
+    # Close contact entries     
+    # Name
+        # Name entry field
+        self.close_name_entry = tk.Entry(self, width= 100)
+        self.close_name_entry.place(x=100, y=550)
+    # Address
+        # Address Entry Field
+        self.close_add_entry = tk.Entry(self, width= 100)
+        self.close_add_entry.place(x=100, y=580)
+    # Contact Information
+        # Phone Number Label
+        self.close_phone_entry = tk.Entry(self, width= 30)
+        self.close_phone_entry.place(x=130, y=630)
+        # Email Address
+        self.close_email_entry = tk.Entry(self, width= 100)
+        self.close_email_entry.place(x=120, y=690)
         
         # Submit button
         self.submit_button = tk.Button(self, text="Submit", command=self.submit_registration)
