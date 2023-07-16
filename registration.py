@@ -32,11 +32,20 @@ class Register(tk.Frame):
         self.add_label.place(x=30, y=120)
     # Date of Birth
         # Date of Birth Label
-        self.birth_guide = tk.Label(self, text="MONTH/DATE/YEAR", bg="yellow",fg="black", font=("Times New Roman", 7)) # Name entry guide
+        self.birth_guide = tk.Label(self, text="MONTH/DATE/YEAR", bg="yellow",fg="black", font=("Times New Roman", 7)) # Date entry guide
         self.birth_guide.place(x=100, y=140)
         self.birth_label = tk.Label(self, bg="yellow",fg="black", text="Birth Date:")
         self.birth_label.place(x=30, y=160)
-
+    # Contact Information
+        self.contact_banner = tk.Label(self, text="CONTACT INFORMATION", bg="blue",fg="white", font=("Times New Roman", 10)) # Contact info banner
+        self.contact_banner.place(x=370, y=190)
+        # Phone Number Label
+        self.phone_label = tk.Label(self, bg="yellow",fg="black", text="Phone Number:")
+        self.phone_label.place(x=30, y=220)
+        # Email Address
+        self.phone_label = tk.Label(self, bg="yellow",fg="black", text="Email address:")
+        self.phone_label.place(x=30, y=260)
+        
 # Entries
     # Name
         # Name entry field
@@ -50,7 +59,13 @@ class Register(tk.Frame):
         # Date of Birth entry Field
         self.birth_entry = tk.Entry(self, width= 30)
         self.birth_entry.place(x=100, y=160)
-        
+    # Contact Information
+        # Phone Number Label
+        self.phone_entry = tk.Entry(self, width= 30)
+        self.phone_entry.place(x=130, y=220)
+        # Email Address
+        self.email_entry = tk.Entry(self, width= 100)
+        self.email_entry.place(x=120, y=260)
         
         
         # Submit button
