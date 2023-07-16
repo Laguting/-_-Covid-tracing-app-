@@ -157,7 +157,8 @@ class Register(tk.Frame):
         # Email Address Entry
         self.close_email_entry = tk.Entry(self, width= 100)
         self.close_email_entry.place(x=120, y=690)
-        
+
+# Navigation buttons
         # Back button
         self.back_button = tk.Button(self, text="Back to Home", command=lambda: self.change_section(0))
         self.back_button.place(x=250, y=720)

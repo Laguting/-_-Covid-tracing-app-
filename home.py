@@ -26,6 +26,8 @@ class Home(tk.Frame):
         
         # Register menu item
         self.file_menu.add_command(label="Register", command=lambda: self.change_section(1))
+        # Search menu item
+        self.file_menu.add_command(label="Search Entry", command=lambda: self.change_section(3))
 
         #Resize image
     def resize_image(self, event):

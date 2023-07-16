@@ -1,7 +1,7 @@
 import tkinter as tk
 from PIL import ImageTk, Image
 
-class Reminders(tk.Frame):
+class Search_Bar(tk.Frame):
     def __init__(self, parent, change_section):
         tk.Frame.__init__(self, parent)
         self.parent = parent
@@ -23,6 +23,16 @@ class Reminders(tk.Frame):
         resized_image = self.initial_bg.resize((new_width, new_height), Image.NEAREST)
         self.bg_image = ImageTk.PhotoImage(resized_image)
         self.bg_name.configure(image=self.bg_image)
+
+# Search Entry
+        self.search_label = tk.Label(self, text="Search by Name:")
+        self.search_label.place(x=30, y=45)
+
+        self.search_entry = tk.Entry(self, width=100)
+        self.search_entry.place(x=150, y=45)
+
+        self.search_button = tk.Button(self, text="Search", command=lambda: self.change_section(0)) # temporary so that the search button will appear
+        self.search_button.place(x=780, y=45)
 
     def present(self):
         self.pack()
