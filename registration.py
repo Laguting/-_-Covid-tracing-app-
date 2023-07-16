@@ -74,9 +74,13 @@ class Register(tk.Frame):
         self.vaccination_label = tk.Label(self, bg="yellow",fg="black", text="Vaccination Status")
         self.vaccination_label.place(x=30,y=320)
     # Are they Positive
+        self.positive_label = tk.Label(self, bg="yellow",fg="black", text="Have you tested positive?")
+        self.positive_label.place(x=30,y=420)
     # Have they been in contact with others
+        self.contact_label = tk.Label(self, bg="yellow",fg="black", text="Have you been in contact with someone since you felt the symptoms?")
+        self.contact_label.place(x=500,y=320)
     
-# Buttons
+# Buttons and Checklist
     # vaccination status chacklist
         self.vaccination_var1 = tk.IntVar() # 1st dose
         self.vaccination_check1 = tk.Checkbutton(self, text="1st Dose", variable=self.vaccination_var1)
@@ -92,11 +96,29 @@ class Register(tk.Frame):
 
         self.vaccination_var4 = tk.IntVar() # 2nd booster
         self.vaccination_check4 = tk.Checkbutton(self, text="2nd Booster", variable=self.vaccination_var4)
-        self.vaccination_check4.place(x=190,y=380)        
+        self.vaccination_check4.place(x=190,y=380)
+    # Are they positive button
+        self.positive_var = tk.StringVar() 
+        # They're positive
+        self.positive_radio1 = tk.Radiobutton(self, text="Yes", variable=self.positive_var, value="Yes")
+        self.positive_radio1.place(x=60,y=450)
+        
+        # They're negative
+        self.positive_radio2 = tk.Radiobutton(self, text="No", variable=self.positive_var, value="No")
+        self.positive_radio2.place(x=120,y=450)  
+    # Have they been in contact with others button
+        self.contact_var = tk.StringVar()
+        #They've been in contact with someone
+        self.contact_radio1 = tk.Radiobutton(self, text="Yes", variable=self.contact_var, value="Yes")
+        self.contact_radio1.place(x=530,y=350)
+        
+        # They haven't been in contact with someone
+        self.contact_radio2 = tk.Radiobutton(self, text="No", variable=self.contact_var, value="No")
+        self.contact_radio2.place(x=620,y=350)     
         
         # Submit button
         self.submit_button = tk.Button(self, text="Submit", command=self.submit_registration)
-        self.submit_button.place(x=450, y=700)
+        self.submit_button.place(x=450, y=730)
         
 
     def submit_registration(self):
@@ -105,6 +127,12 @@ class Register(tk.Frame):
         birth_date = self.birth_entry.get()
         phone_number = self.phone_entry.get()
         email_add = self.email_entry.get()
+        vaccination_status = {
+            "1st Dose": bool(self.vaccination_var1.get()),
+            "2nd Dose": bool(self.vaccination_var2.get()),
+            "1st Booster": bool(self.vaccination_var3.get()),
+            "2nd Booster": bool(self.vaccination_var4.get()),
+        }
         # Perform further processing or save the registration information
 
         # Print the registration information as an example
