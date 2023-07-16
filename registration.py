@@ -133,10 +133,10 @@ class Register(tk.Frame):
         self.close_add_label.place(x=30, y=590)
     # Contact Information
         self.close_contact_banner = tk.Label(self, text="CONTACT INFORMATION", bg="yellow",fg="black", font=("Times New Roman", 10)) # Contact info banner
-        self.close_contact_banner.place(x=370, y=610)
+        self.close_contact_banner.place(x=370, y=630)
         # Phone Number Label
         self.close_phone_label = tk.Label(self, bg="yellow",fg="black", text="Phone Number:")
-        self.close_phone_label.place(x=30, y=630)
+        self.close_phone_label.place(x=30, y=650)
         # Email Address
         self.close_phone_label = tk.Label(self, bg="yellow",fg="black", text="Email address:")
         self.close_phone_label.place(x=30, y=690)
@@ -149,18 +149,18 @@ class Register(tk.Frame):
     # Address
         # Address Entry Field
         self.close_add_entry = tk.Entry(self, width= 100)
-        self.close_add_entry.place(x=100, y=580)
+        self.close_add_entry.place(x=100, y=590)
     # Contact Information
-        # Phone Number Label
+        # Phone Number Entry
         self.close_phone_entry = tk.Entry(self, width= 30)
-        self.close_phone_entry.place(x=130, y=630)
-        # Email Address
+        self.close_phone_entry.place(x=130, y=650)
+        # Email Address Entry
         self.close_email_entry = tk.Entry(self, width= 100)
         self.close_email_entry.place(x=120, y=690)
         
         # Submit button
         self.submit_button = tk.Button(self, text="Submit", command=self.submit_registration)
-        self.submit_button.place(x=450, y=730)
+        self.submit_button.place(x=450, y=720)
         
 
     def submit_registration(self):
@@ -185,6 +185,18 @@ class Register(tk.Frame):
         with open("user_inputs_folder.txt", "a") as file:
             file.write("Registration Information:\n")
             file.write("Name: {}\n".format(name))
+            file.write("Address: {}\n".format(address))
+            file.write("Birth Date: {}\n".format(birth_date))
+            file.write("Phone Number: {}\n".format(phone_number))
+            file.write("Email Address: {}\n".format(email_add))
+            file.write("Vaccination Status: {}\n".format(vaccination_status))
+            file.write("Have you tested positive?: {}\n".format(positive))
+            file.write("Have you been in contact with someone since you felt the symptoms?: {}\n".format(contact))
+            file.write("Close Contact Information:\n")
+            file.write("Close Contact Name: {}\n".format(close_contact_name))
+            file.write("Close Contact Address: {}\n".format(close_contact_address))
+            file.write("Close Contact Phone: {}\n".format(close_contact_phone))
+            file.write("Close Contact Email Address: {}\n".format(close_contact_email))
             file.write("\n")
         # Perform further processing or save the registration information
 
@@ -203,7 +215,21 @@ class Register(tk.Frame):
         print("Close Contact Address:", close_contact_address)
         print("Close Contact Phone:", close_contact_phone)
         print("Close Contact Email Address: ", close_contact_email)
-        
+
+        # Back button
+        self.back_button = tk.Button(self, text="Back", command=self.go_back)
+        self.back_button.place(x=30, y=30)
+
+        # Exit button
+        self.exit_button = tk.Button(self, text="Exit", command=self.exit_application)
+        self.exit_button.place(x=100, y=30)
+    
+    def go_back(self):
+        self.change_section(0)
+
+    def exit_application(self):
+        self.change_section(0)
+
         #Resize image
     def resize_image(self, event):
         new_width = event.width
