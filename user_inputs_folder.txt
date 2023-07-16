@@ -31,3 +31,18 @@ Close Contact Address: none
 Close Contact Phone: none
 Close Contact Email Address: none
 
+Registration Information:
+Name: Maricon Jane, Ginco, Laguting
+Address: 11 Bicol Brigade Tatalon, Quezon City
+Birth Date: 04/14/2004
+Phone Number: 09263952915
+Email Address: lagutingmariconjaneg@gmail.com
+Vaccination Status: {'1st Dose': False, '2nd Dose': True, '1st Booster': False, '2nd Booster': False}
+Have you tested positive?: No
+Have you been in contact with someone since you felt the symptoms?: No
+Close Contact Information:
+Close Contact Name: none
+Close Contact Address: none
+Close Contact Phone: none
+Close Contact Email Address: none
+

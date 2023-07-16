@@ -1,5 +1,6 @@
 import tkinter as tk
 from PIL import ImageTk, Image
+from tkinter import messagebox
 
 class Register(tk.Frame):
     def __init__(self, parent, change_section):
@@ -208,7 +209,7 @@ class Register(tk.Frame):
             file.write("Close Contact Email Address: {}\n".format(close_contact_email))
             file.write("\n")
         # Perform further processing or save the registration information
-
+            messagebox.showinfo("Registration Information", "You Registration Information has been recorded")
         # Print the registration information as an example
         print("Registration Information:")
         print("Name:", name)
