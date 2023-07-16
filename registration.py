@@ -175,6 +175,17 @@ class Register(tk.Frame):
             "1st Booster": bool(self.vaccination_var3.get()),
             "2nd Booster": bool(self.vaccination_var4.get()),
         }
+        positive = self.positive_var.get()
+        contact = self.contact_var.get()
+        close_contact_name = self.close_name_entry.get()
+        close_contact_address = self.close_add_entry.get()
+        close_contact_phone = self.close_phone_entry.get()
+        close_contact_email = self.close_email_entry.get()
+    # Save the informations in txt file
+        with open("user_inputs_folder.txt", "a") as file:
+            file.write("Registration Information:\n")
+            file.write("Name: {}\n".format(name))
+            file.write("\n")
         # Perform further processing or save the registration information
 
         # Print the registration information as an example
@@ -184,6 +195,14 @@ class Register(tk.Frame):
         print("Birth Date:", birth_date)
         print("Phone Number:", phone_number)
         print("Email Address:", email_add)
+        print("Vaccination Status:", vaccination_status)
+        print("Have you tested positive?:", positive)
+        print("Have you been in contact with someone since you felt the symptoms?:", contact)
+        print("Close Contact Information:")
+        print("Close Contact Name:", close_contact_name)
+        print("Close Contact Address:", close_contact_address)
+        print("Close Contact Phone:", close_contact_phone)
+        print("Close Contact Email Address: ", close_contact_email)
         
         #Resize image
     def resize_image(self, event):
