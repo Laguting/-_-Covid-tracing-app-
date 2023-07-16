@@ -20,15 +20,26 @@ class Register(tk.Frame):
         self.info.place(x=400, y=45)
 
 # Labels
+    # Name
         # Name label
         self.name_guide = tk.Label(self, text="FIRST NAME,MIDDLE NAME,SURNAME", bg="yellow",fg="black", font=("Times New Roman", 7)) # Name entry guide
         self.name_guide.place(x=100, y=55)
         self.name_label = tk.Label(self, bg="yellow",fg="black", text="Name:")
-        self.name_label.place(x=50, y=80)
+        self.name_label.place(x=30, y=80)
+    # Address
+        # Adress Label
+        self.add_label = tk.Label(self, bg="yellow",fg="black", text="Address:")
+        self.add_label.place(x=30, y=120)
 
+# Entries
+    # Name
         # Name entry field
         self.name_entry = tk.Entry(self, width= 100)
         self.name_entry.place(x=100, y=80)
+    # Address
+        # Address Entry Field
+        self.add_entry = tk.Entry(self, width= 100)
+        self.add_entry.place(x=110, y=120)
         
         # Submit button
         self.submit_button = tk.Button(self, text="Submit", command=self.submit_registration)
