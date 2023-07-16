@@ -33,15 +33,12 @@ class Search_Bar(tk.Frame):
         self.search_entry = tk.Entry(self, width=100)
         self.search_entry.place(x=150, y=45)
         # Search button
-        self.search_button = tk.Button(self, text="Search", command=lambda: self.change_section(0)) # temporary so that the search button will appear
+        self.search_button = tk.Button(self, text="Search", command=self.search_registration) # Search the entry
         self.search_button.place(x=780, y=45)
         # Search Result
         self.result_label = tk.Label(self, bg="yellow", fg="black" ,text="") # Display the result of the searched informaion
-        self.result_label.place(x=30, y=100)
-        # Present button
-        self.present_button = tk.Button(self, text="Present", command= lambda: self.change_section(0), state=tk.DISABLED)
-        self.present_button.place(x=880, y=45)
-    
+        self.result_label.place(x=200, y=100)
+
 # Navigation buttons
         # Back button
         self.back_button = tk.Button(self, text="Back to Home", command=lambda: self.change_section(0))
@@ -51,6 +48,40 @@ class Search_Bar(tk.Frame):
         self.exit_button = tk.Button(self, text="Exit", command=lambda: self.change_section(2))
         self.exit_button.place(x=650, y=720)
 
+# Search entry confirmation
+    def search_registration(self):
+        name_to_search = self.search_entry.get()
+        registration_info = self.get_registration_info(name_to_search)
+
+        if registration_info:
+            self.result_label.config(text=registration_info)
+            self.present_button.config(state=tk.NORMAL)
+            messagebox.showinfo("Search Result", "Registration found!")
+        else:
+            self.result_label.config(text="No matching registration found.")
+            self.present_button.config(state=tk.DISABLED)
+            messagebox.showinfo("Search Result", "No matching registration found.")
+            
+# Get the registration information
+    def get_registration_info(self, name):
+        with open("user_inputs_folder.txt", "r") as file:
+            lines = file.readlines()
+
+        registration_info = ""
+        found = False
+
+        for i in range(len(lines)):
+            line = lines[i].strip()
+            if line.startswith("Name:") and name in line:
+                found = True
+                registration_info += line + "\n"
+                added_to_result = True
+            elif added_to_result:
+                registration_info += line + "\n"
+                if line.startswith("Name:"):
+                    added_to_result = False
+        return registration_info if found else ""
+        
     def present(self):
         self.pack()
 
