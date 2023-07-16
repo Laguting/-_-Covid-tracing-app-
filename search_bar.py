@@ -69,18 +69,18 @@ class Search_Bar(tk.Frame):
 
         registration_info = ""
         found = False
-        added_to_result = False
+        is_matching_registration = False
 
-        for i in range(len(lines)):
-            line = lines[i].strip()
+        for line in lines:
+            line = line.strip()
             if line.startswith("Name:") and name in line:
                 found = True
+                is_matching_registration = True
                 registration_info += line + "\n"
-                added_to_result = True
-            elif added_to_result:
+            elif is_matching_registration:
                 registration_info += line + "\n"
-                if line.startswith("Name:"):
-                    added_to_result = False
+                if line.startswith("Name: "):
+                    is_matching_registration = False
         return registration_info if found else ""
         
     def present(self):
