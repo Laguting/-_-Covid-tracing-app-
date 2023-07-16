@@ -158,6 +158,14 @@ class Register(tk.Frame):
         self.close_email_entry = tk.Entry(self, width= 100)
         self.close_email_entry.place(x=120, y=690)
         
+        # Back button
+        self.back_button = tk.Button(self, text="Back to Home", command=lambda: self.change_section(0))
+        self.back_button.place(x=250, y=720)
+
+        # Exit button
+        self.exit_button = tk.Button(self, text="Exit", command=lambda: self.change_section(2))
+        self.exit_button.place(x=650, y=720)
+        
         # Submit button
         self.submit_button = tk.Button(self, text="Submit", command=self.submit_registration)
         self.submit_button.place(x=450, y=720)
@@ -215,20 +223,6 @@ class Register(tk.Frame):
         print("Close Contact Address:", close_contact_address)
         print("Close Contact Phone:", close_contact_phone)
         print("Close Contact Email Address: ", close_contact_email)
-
-        # Back button
-        self.back_button = tk.Button(self, text="Back", command=self.go_back)
-        self.back_button.place(x=30, y=30)
-
-        # Exit button
-        self.exit_button = tk.Button(self, text="Exit", command=self.exit_application)
-        self.exit_button.place(x=100, y=30)
-    
-    def go_back(self):
-        self.change_section(0)
-
-    def exit_application(self):
-        self.change_section(0)
 
         #Resize image
     def resize_image(self, event):
