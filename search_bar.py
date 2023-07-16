@@ -69,6 +69,7 @@ class Search_Bar(tk.Frame):
 
         registration_info = ""
         found = False
+        added_to_result = False
 
         for i in range(len(lines)):
             line = lines[i].strip()
