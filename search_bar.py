@@ -1,5 +1,6 @@
 import tkinter as tk
 from PIL import ImageTk, Image
+from tkinter import messagebox
 
 class Search_Bar(tk.Frame):
     def __init__(self, parent, change_section):
@@ -35,10 +36,12 @@ class Search_Bar(tk.Frame):
         self.search_button = tk.Button(self, text="Search", command=lambda: self.change_section(0)) # temporary so that the search button will appear
         self.search_button.place(x=780, y=45)
         # Search Result
-        self.result_label = tk.Label(self, text="") # Display the result of the searched informaion
+        self.result_label = tk.Label(self, bg="yellow", fg="black" ,text="") # Display the result of the searched informaion
         self.result_label.place(x=30, y=100)
+        # Present button
+        self.present_button = tk.Button(self, text="Present", command= lambda: self.change_section(0), state=tk.DISABLED)
+        self.present_button.place(x=880, y=45)
     
-       
 # Navigation buttons
         # Back button
         self.back_button = tk.Button(self, text="Back to Home", command=lambda: self.change_section(0))
