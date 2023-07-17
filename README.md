@@ -21,6 +21,19 @@ https://github.com/Laguting/CTA_Contact-Tracing-App_HYGIEIA/assets/129570700/b0c
 *Sample Picture*
 ![image](https://github.com/Laguting/CTA_Contact-Tracing-App_HYGIEIA/assets/129570700/3eb8dc28-a098-4965-8329-3ece07ade1cc)
 
+## How to run in gitbash 🚀?
+> git clone [https://github.com/miku1001/Contact-Tracing-Software.git](https://github.com/Laguting/CTA_Contract-Tracing-App_HYGIEIA.git)
 
+> cd CTA_Contact-Tracing-App_HYGIEIA/
+
+> python run_the_program.py
+
+> python search_bar.py
+
+> python reminders.py
+
+> python registration.py
+
+> python home.py
 
            
