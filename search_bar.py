@@ -34,7 +34,7 @@ class Search_Bar(tk.Frame):
         self.present_button = tk.Button(self, text="View Entry", command=self.view_entry, state=tk.DISABLED)
         self.present_button.place(x=400, y=720)
     # Edit Button
-        self.edit_button = tk.Button(self, text="Edit Entry", command=self.edit_entry, state=tk.DISABLED)
+        self.edit_button = tk.Button(self, text="Edit Entry", command=self.edit_entry)
         self.edit_button.place(x=500, y=720)
 
         self.registration_info = ""
@@ -109,51 +109,11 @@ class Search_Bar(tk.Frame):
         if confirmation:
             self.result_label.config(text=self.registration_info)
 
-# Allow the user to edit their entry
+# Ask the user is they want to edit their entry
     def edit_entry(self):
-        confirmation = messagebox.askyesno("Edit Entry", "Do you want to edit the registration entry?")
+        confirmation = messagebox.askyesno("Edit Entry", "Do you want to edit your registration entry?")
         if confirmation:
-        # Open a new window or form to edit the registration information
-            edit_window = tk.Toplevel(self.parent)
-            edit_window.title("Edit Entry")
-
-            # Create labels and entry fields for each registration field
-            fields = self.registration_info.strip().split("\n")
-            entry_labels = []
-            entry_fields = []
-
-            for field in fields:
-                label_text, value_text = field.split(":", 1)
-                label_text = label_text.strip()
-                value_text = value_text.strip()
-
-                # Label
-                label = tk.Label(edit_window, text=label_text)
-                label.grid(row=len(entry_labels), column=0, sticky=tk.W, padx=10, pady=5)
-                entry_labels.append(label)
-            # Save Button
-            save_button = tk.Button(edit_window, text="Save", command=lambda win=edit_window: self.save_edited_entry(entry_fields, win))
-        save_button.grid(row=len(entry_fields) + 1, columnspan=2, padx=10, pady=10)
-# Save the edited entry
-    def save_edited_entry(self, entry_fields, edit_window):
-        # Get the edited values from the entry fields
-        edited_values = [entry.get() for entry in entry_fields]
-
-        # Update the registration information
-        updated_registration_info = ""
-        fields = self.registration_info.strip().split("\n")
-        for i, field in enumerate(fields):
-            label_text = field.split(":")[0].strip()
-            updated_registration_info += f"{label_text}: {edited_values[i]}\n"
-
-        # Update the registration info variable
-        self.registration_info = updated_registration_info
-
-        # Close the edit window
-        edit_window.destroy()
-
-        # Display the updated registration information
-        self.display_registration_info()
+            self.change_section(1)
 
     def present(self):
         self.pack()

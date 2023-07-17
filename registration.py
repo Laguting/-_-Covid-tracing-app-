@@ -215,13 +215,23 @@ class Register(tk.Frame):
         # Perform further processing or save the registration information
             messagebox.showinfo("Registration Information", "You Registration Information has been recorded")
 
-        #Resize image
+    #Resize image
     def resize_image(self, event):
         new_width = event.width
         new_height = event.height
         resized_image = self.initial_bg.resize((new_width, new_height), Image.NEAREST)
         self.bg_image = ImageTk.PhotoImage(resized_image)
         self.bg_name.configure(image=self.bg_image)
+        
+# Allow deletion of the entry with the same name
+    def delete_registration_entry(self, name):
+        with open("user_inputs_folder.txt", "r") as file:
+            lines = file.readlines()
+
+        with open("user_inputs_folder.txt", "w") as file:
+            for line in lines:
+                if not line.startswith("Name:") or name not in line:
+                    file.write(line)
 
     def present(self):
         self.pack()
