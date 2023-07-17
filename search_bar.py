@@ -11,7 +11,7 @@ class Search_Bar(tk.Frame):
         self.label.pack(fill="both", expand=1)
 
         # Background
-        self.initial_bg = Image.open("register.png")
+        self.initial_bg = Image.open("search.png")
         self.bg = ImageTk.PhotoImage(self.initial_bg)
         self.bg_name = tk.Label(self, image=self.bg)
         self.bg_name.place(x=0, y=0, relwidth=1, relheight=1)
@@ -20,29 +20,32 @@ class Search_Bar(tk.Frame):
 # Search
     # Search label
         self.search_label = tk.Label(self, bg="yellow", fg="black", text="Search by Name:")
-        self.search_label.place(x=30, y=45)
+        self.search_label.place(x=60, y=250)
     # Search entry
         self.search_entry = tk.Entry(self, width=100)
-        self.search_entry.place(x=250, y=45)
+        self.search_entry.place(x=180, y=250)
     # Search button
         self.search_button = tk.Button(self, text="Search", command=self.search_registration)
-        self.search_button.place(x=780, y=45)
+        self.search_button.place(x=820, y=250)
     # Search button result
         self.result_label = tk.Label(self, bg="yellow", fg="black", text="")
-        self.result_label.place(x=150, y=100)
+        self.result_label.place(x=230, y=300)
     # Present Search
         self.present_button = tk.Button(self, text="View Entry", command=self.view_entry, state=tk.DISABLED)
-        self.present_button.place(x=450, y=720)
+        self.present_button.place(x=400, y=720)
+    # Edit Button
+        self.edit_button = tk.Button(self, text="Edit Entry", command=self.edit_entry, state=tk.DISABLED)
+        self.edit_button.place(x=500, y=720)
 
         self.registration_info = ""
 
 # Navigation buttons
     # Back to home
         self.back_button = tk.Button(self, text="Back to Home", command=lambda: self.change_section(0))
-        self.back_button.place(x=250, y=720)
+        self.back_button.place(x=270, y=720)
     # Exit
         self.exit_button = tk.Button(self, text="Exit", command=lambda: self.change_section(2))
-        self.exit_button.place(x=650, y=720)
+        self.exit_button.place(x=600, y=720)
 
 # Background image
     def resize_image(self, event):
@@ -105,6 +108,52 @@ class Search_Bar(tk.Frame):
         confirmation = messagebox.askyesno("View Entry", "Do you want to view the registration entry?")
         if confirmation:
             self.result_label.config(text=self.registration_info)
+
+# Allow the user to edit their entry
+    def edit_entry(self):
+        confirmation = messagebox.askyesno("Edit Entry", "Do you want to edit the registration entry?")
+        if confirmation:
+        # Open a new window or form to edit the registration information
+            edit_window = tk.Toplevel(self.parent)
+            edit_window.title("Edit Entry")
+
+            # Create labels and entry fields for each registration field
+            fields = self.registration_info.strip().split("\n")
+            entry_labels = []
+            entry_fields = []
+
+            for field in fields:
+                label_text, value_text = field.split(":", 1)
+                label_text = label_text.strip()
+                value_text = value_text.strip()
+
+                # Label
+                label = tk.Label(edit_window, text=label_text)
+                label.grid(row=len(entry_labels), column=0, sticky=tk.W, padx=10, pady=5)
+                entry_labels.append(label)
+            # Save Button
+            save_button = tk.Button(edit_window, text="Save", command=lambda win=edit_window: self.save_edited_entry(entry_fields, win))
+        save_button.grid(row=len(entry_fields) + 1, columnspan=2, padx=10, pady=10)
+# Save the edited entry
+    def save_edited_entry(self, entry_fields, edit_window):
+        # Get the edited values from the entry fields
+        edited_values = [entry.get() for entry in entry_fields]
+
+        # Update the registration information
+        updated_registration_info = ""
+        fields = self.registration_info.strip().split("\n")
+        for i, field in enumerate(fields):
+            label_text = field.split(":")[0].strip()
+            updated_registration_info += f"{label_text}: {edited_values[i]}\n"
+
+        # Update the registration info variable
+        self.registration_info = updated_registration_info
+
+        # Close the edit window
+        edit_window.destroy()
+
+        # Display the updated registration information
+        self.display_registration_info()
 
     def present(self):
         self.pack()

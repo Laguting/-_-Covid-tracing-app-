@@ -16,9 +16,6 @@ class Register(tk.Frame):
         self.bg_name = tk.Label(self, image=self.bg)
         self.bg_name.place(x=0, y=0, relwidth=1, relheight=1)
         self.bind("<Configure>", self.resize_image)
-        
-        self.info = tk.Label(self,bg="black", fg="yellow",text = "Registration ", height=1, font=("Times New Roman", 13))
-        self.info.place(x=400, y=45)
 
 # Personal Information Labels
     # Name
@@ -194,17 +191,22 @@ class Register(tk.Frame):
     # Save the informations in txt file
         with open("user_inputs_folder.txt", "a") as file:
             file.write("                              Registration Information:\n")
+            file.write("")
             file.write("Name:       {}\n".format(name))
             file.write("Address:    {}\n".format(address))
             file.write("Birth Date:    {}\n".format(birth_date))
             file.write("Phone Number:    {}\n".format(phone_number))
             file.write("Email Address:   {}\n".format(email_add))
+            file.write("")
             file.write("                                     Health Status:\n")
+            file.write("")
             file.write("Name:       {}\n".format(name))
             file.write("Vaccination Status:   {}\n".format(vaccination_status))
             file.write("Have you tested positive?:  {}\n".format(positive))
             file.write("Have you been in contact with someone since you felt the symptoms?:   {}\n".format(contact))
+            file.write("")
             file.write("                               Close Contact Information:\n")
+            file.write("")
             file.write("Close Contact Name:    {}\n".format(close_contact_name))
             file.write("Close Contact Address:    {}\n".format(close_contact_address))
             file.write("Close Contact Phone:    {}\n".format(close_contact_phone))
@@ -212,21 +214,6 @@ class Register(tk.Frame):
             file.write("\n")
         # Perform further processing or save the registration information
             messagebox.showinfo("Registration Information", "You Registration Information has been recorded")
-        # Print the registration information as an example
-        print("Registration Information:")
-        print("Name:", name)
-        print("Address:", address)
-        print("Birth Date:", birth_date)
-        print("Phone Number:", phone_number)
-        print("Email Address:", email_add)
-        print("Vaccination Status:", vaccination_status)
-        print("Have you tested positive?:", positive)
-        print("Have you been in contact with someone since you felt the symptoms?:", contact)
-        print("Close Contact Information:")
-        print("Close Contact Name:", close_contact_name)
-        print("Close Contact Address:", close_contact_address)
-        print("Close Contact Phone:", close_contact_phone)
-        print("Close Contact Email Address: ", close_contact_email)
 
         #Resize image
     def resize_image(self, event):
