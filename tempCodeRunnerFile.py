@@ -1,4 +1,6 @@
 
+        section.pack(fill="both", expand=True)
+        self.present = section_n
     
     def change_section(self, section_n):
         for section in self.sections:

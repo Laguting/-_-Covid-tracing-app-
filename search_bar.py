@@ -109,7 +109,7 @@ class Search_Bar(tk.Frame):
         if confirmation:
             self.result_label.config(text=self.registration_info)
             self.delete_button = tk.Button(self, text="Delete Entry", command=self.delete_entry)
-            self.delete_button.place(x=550, y=720)
+            self.delete_button.place(x=700, y=720)
             
 # Allow deletion of the entry with the same name
     def delete_registration_entry(self, name):
