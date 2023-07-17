@@ -43,4 +43,11 @@ https://drive.google.com/file/d/1LLMHFpzaGia3DhxGcXt61JBGJsjtyAfa/view?usp=shari
 This program used one installation tkinter. Install it by typing the following in the terminal.
 > pip install tk
 
+# CREDITS 👩
+- Developed by Maricon Jane G. Laguting from BSCpE 1-4
+  
+## CONTACTS 📞
+- *Facebook*: https://www.facebook.com/mariconjaneglaguting?mibextid=ZbWKwL
+- *Number*: (TM) +63 926 395 2915
+- *Gmail*: lagutingmariconjaneg@gmail.com
            
