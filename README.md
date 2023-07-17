@@ -39,4 +39,8 @@ https://drive.google.com/file/d/1LLMHFpzaGia3DhxGcXt61JBGJsjtyAfa/view?usp=shari
 
 > python home.py
 
+# INSTALLATIONS 📥
+This program used one installation tkinter. Install it by typing the following in the terminal.
+> pip install tk
+
            
