@@ -33,8 +33,8 @@ class Search_Bar(tk.Frame):
     # Present Search
         self.present_button = tk.Button(self, text="View Entry", command=self.view_entry, state=tk.DISABLED)
         self.present_button.place(x=400, y=720)
-    # Edit Button
-        self.edit_button = tk.Button(self, text="Edit Entry", command=self.edit_entry)
+    # Add new entry Button
+        self.edit_button = tk.Button(self, text="Add Entry", command=self.add_entry)
         self.edit_button.place(x=500, y=720)
 
         self.registration_info = ""
@@ -108,10 +108,31 @@ class Search_Bar(tk.Frame):
         confirmation = messagebox.askyesno("View Entry", "Do you want to view the registration entry?")
         if confirmation:
             self.result_label.config(text=self.registration_info)
+            self.delete_button = tk.Button(self, text="Delete Entry", command=self.delete_entry)
+            self.delete_button.place(x=550, y=720)
+            
+# Allow deletion of the entry with the same name
+    def delete_registration_entry(self, name):
+        with open("user_inputs_folder.txt", "r") as file:
+            lines = file.readlines()
+
+        with open("user_inputs_folder.txt", "w") as file:
+            for line in lines:
+                if not line.startswith("Name:") or name not in line:
+                    file.write(line)
+                    
+    def delete_entry(self):
+        confirmation = messagebox.askyesno("Delete Entry", "Are you sure you want to delete this entry?")
+        if confirmation:
+            name = self.search_entry.get()
+            self.delete_registration_entry(name)
+            self.result_label.config(text="Registration entry deleted.")
+            self.delete_button.destroy()
+            messagebox.showinfo("Delete Entry", "Registration entry has been deleted.")
 
 # Ask the user is they want to edit their entry
-    def edit_entry(self):
-        confirmation = messagebox.askyesno("Edit Entry", "Do you want to edit your registration entry?")
+    def add_entry(self):
+        confirmation = messagebox.askyesno("Edit Entry", "Do you want to add your registration entry?")
         if confirmation:
             self.change_section(1)
 
