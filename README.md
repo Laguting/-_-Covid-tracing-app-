@@ -25,7 +25,7 @@ https://github.com/Laguting/CTA_Contact-Tracing-App_HYGIEIA/assets/129570700/b0c
 https://drive.google.com/file/d/1LLMHFpzaGia3DhxGcXt61JBGJsjtyAfa/view?usp=sharing
 
 ## How to run in gitbash 🚀?
-> git clone [https://github.com/miku1001/Contact-Tracing-Software.git](https://github.com/Laguting/CTA_Contract-Tracing-App_HYGIEIA.git)
+> git clone https://github.com/Laguting/CTA_Contract-Tracing-App_HYGIEIA.git
 
 > cd CTA_Contact-Tracing-App_HYGIEIA/
 
