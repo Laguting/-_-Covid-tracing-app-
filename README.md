@@ -50,4 +50,5 @@ This program used one installation tkinter. Install it by typing the following i
 - *Facebook*: https://www.facebook.com/mariconjaneglaguting?mibextid=ZbWKwL
 - *Number*: (TM) +63 926 395 2915
 - *Gmail*: lagutingmariconjaneg@gmail.com
-           
+
+# ٩(ˊᗜˋ*)و ♡
